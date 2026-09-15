@@ -12,6 +12,7 @@ public class MarsRoverMoveForwardTests
             yield return new TestCaseData(Direction.North, (1, 2));
             yield return new TestCaseData(Direction.East, (2, 1));
             yield return new TestCaseData(Direction.South, (1, 0));
+            yield return new TestCaseData(Direction.West, (0, 1));
         }
     }
 

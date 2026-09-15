@@ -21,9 +21,13 @@ public class Rover
         {
             Position = Position with { Item1 = Position.Item1 + 1 };
         }
-        else
+        else if(Direction is Direction.South)
         {
             Position = Position with { Item2 = Position.Item2 - 1 };
+        }
+        else
+        {
+            Position = Position with { Item1 = Position.Item1 - 1 };
         }
     }
 }
