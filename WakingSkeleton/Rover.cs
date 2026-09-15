@@ -13,21 +13,20 @@ public class Rover
     
     public void CommandF()
     {
-        if (Direction is Direction.North)
+        switch (Direction)
         {
-            Position = Position with { Item2 = Position.Item2 + 1 };
-        }
-        else if(Direction is Direction.East)
-        {
-            Position = Position with { Item1 = Position.Item1 + 1 };
-        }
-        else if(Direction is Direction.South)
-        {
-            Position = Position with { Item2 = Position.Item2 - 1 };
-        }
-        else
-        {
-            Position = Position with { Item1 = Position.Item1 - 1 };
+            case Direction.North:
+                Position = Position with { Item2 = Position.Item2 + 1 };
+                break;
+            case Direction.East:
+                Position = Position with { Item1 = Position.Item1 + 1 };
+                break;
+            case Direction.South:
+                Position = Position with { Item2 = Position.Item2 - 1 };
+                break;
+            default:
+                Position = Position with { Item1 = Position.Item1 - 1 };
+                break;
         }
     }
 }
