@@ -10,6 +10,7 @@ public class MarsRoverMoveForwardTests
         get
         {
             yield return new TestCaseData(Direction.North, (1, 2));
+            yield return new TestCaseData(Direction.East, (2, 1));
         }
     }
 

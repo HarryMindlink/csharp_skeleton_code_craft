@@ -13,6 +13,13 @@ public class Rover
     
     public void CommandF()
     {
-        Position = Position with { Item2 = Position.Item2 + 1 };
+        if (Direction is Direction.North)
+        {
+            Position = Position with { Item2 = Position.Item2 + 1 };
+        }
+        else
+        {
+            Position = Position with { Item1 = Position.Item1 + 1 };
+        }
     }
 }
