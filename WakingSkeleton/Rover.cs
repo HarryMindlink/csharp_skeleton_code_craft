@@ -2,8 +2,8 @@
 
 public class Rover
 {
-    public Direction Direction { get; set; }
-    public (int, int) Position { get; set; }
+    public Direction Direction { get; }
+    public (int, int) Position { get; private set; }
 
     public Rover((int, int) position, Direction direction)
     {
