@@ -6,8 +6,15 @@ public class MarsRoverInitializationTests
     [Test]
     public void InitializingRoverAtGivenPosition()
     {
-        Rover rover = new Rover((2, 3));
+        Rover rover = new Rover((2, 3), Direction.North);
         Assert.That(rover.Position, Is.EqualTo((2, 3)));
+    }
+
+    [Test]
+    public void InitializingRoverWithGivenDirection()
+    {
+        var rover = new Rover((2, 3), Direction.North);
+        Assert.That(rover.Direction, Is.EqualTo(Direction.North));
     }
 }
 
