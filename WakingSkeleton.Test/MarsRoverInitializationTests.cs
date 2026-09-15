@@ -11,16 +11,6 @@ public class MarsRoverInitializationTests
     }
 }
 
-public class Rover
-{
-    public Rover((int, int) position)
-    {
-        this.Position = position;
-    }
-
-    public (int, int) Position { get; set; }
-}
-
 /* Feature: Initialising the Mars Rover
 
    The rover is created with a starting position and heading.
