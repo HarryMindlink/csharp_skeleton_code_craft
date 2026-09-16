@@ -1,4 +1,6 @@
-﻿namespace WakingSkeleton.Test;
+﻿using Moq;
+
+namespace WakingSkeleton.Test;
 
 using GuitarShack;
 
@@ -8,14 +10,34 @@ internal class AddItemTests
     [Test]
     public void AddItemWithSufficientStockToOrder()
     {
-        int productId = 327;
+        const int productId = 327;
 
-        Order order = new Order();
+        var mockInventory = new Mock<IInventory>();
+        mockInventory.Setup(i => i.TryAddHold(productId)).Returns(true);
+
+        var order = new Order(mockInventory.Object);
 
         order.AddItem(productId);
 
-        int productQuantity = order.GetProductQuantity(productId);
+        var productQuantity = order.GetProductQuantity(productId);
 
         Assert.That(productQuantity, Is.EqualTo(1));
     }
+
+    [Test]
+    public void AddingItem_WhenInsufficientStockAndNoStockOnHold_ThenClearItemFromOrder()
+    {
+        const int productId = 327;
+
+        var mockInventory = new Mock<IInventory>();
+
+        var order = new Order(mockInventory.Object);
+
+        order.AddItem(productId);
+
+        var productQuantity = order.GetProductQuantity(productId);
+
+        Assert.That(productQuantity, Is.EqualTo(0));
+    }
+
 }
