@@ -31,6 +31,9 @@ internal class AddItemTests
 
         Inventory inventory = new Inventory();
 
+        Order order = new Order(inventory);
+        order.AddItem(productId, 1);
+
         int heldCount = inventory.GetHeldCountForProduct(productId);
         Assert.That(heldCount, Is.EqualTo(1));
     }
@@ -50,5 +53,4 @@ internal class AddItemTests
 
         Assert.That(productQuantity, Is.EqualTo(0));
     }
-
 }
