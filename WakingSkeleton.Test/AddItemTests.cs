@@ -17,11 +17,22 @@ internal class AddItemTests
 
         var order = new Order(mockInventory.Object);
 
-        order.AddItem(productId);
+        order.AddItem(productId, 1);
 
         var productQuantity = order.GetProductQuantity(productId);
 
         Assert.That(productQuantity, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void AddingItem_WhenSufficientStock_PlacesTemporaryHold()
+    {
+        int productId = 327;
+
+        Inventory inventory = new Inventory();
+
+        int heldCount = inventory.GetHeldCountForProduct(productId);
+        Assert.That(heldCount, Is.EqualTo(1));
     }
 
     [Test]
@@ -33,7 +44,7 @@ internal class AddItemTests
 
         var order = new Order(mockInventory.Object);
 
-        order.AddItem(productId);
+        order.AddItem(productId, 1);
 
         var productQuantity = order.GetProductQuantity(productId);
 

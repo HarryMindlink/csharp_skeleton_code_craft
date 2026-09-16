@@ -9,7 +9,7 @@ public class Order(IInventory inventory)
         return _quantity;
     }
 
-    public void AddItem(int productId)
+    public void AddItem(int productId, int quantity)
     {
         if (!inventory.TryAddHold(productId))
             return;

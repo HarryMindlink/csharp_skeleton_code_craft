@@ -6,4 +6,9 @@ public class Inventory : IInventory
     {
         return true;
     }
+
+    public int GetHeldCountForProduct(int productId)
+    {
+        return 0;
+    }
 }
