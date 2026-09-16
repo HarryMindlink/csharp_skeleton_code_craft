@@ -1,5 +1,7 @@
 ﻿namespace WakingSkeleton.Test;
 
+using GuitarShack;
+
 [TestFixture]
 internal class AddItemTests
 {
@@ -15,17 +17,5 @@ internal class AddItemTests
         int productQuantity = order.GetProductQuantity(productId);
 
         Assert.That(productQuantity, Is.EqualTo(1));
-    }
-}
-
-internal class Order
-{
-    public int GetProductQuantity(int productId)
-    {
-        return 1;
-    }
-
-    public void AddItem(int productId)
-    {
     }
 }
